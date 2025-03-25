@@ -1,0 +1,10 @@
+#root {
+  width: var(--body_width);
+  height: var(--body_height);
+}
+
+.app {
+  width: var(--body_width);
+  height: var(--body_height);
+  background-color: var(--background);
+}

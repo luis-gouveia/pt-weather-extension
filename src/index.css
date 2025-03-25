@@ -1,0 +1,19 @@
+:root {
+  --background: #DCECFB;
+  --color: #202329;
+
+  --body_width: 400px;
+  --body_height: 600px;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+
+  background-color: #FFFFFF;
+  color: var(--color);
+
+  max-width: var(--body_width);
+  max-height: var(--body_height);
+}
