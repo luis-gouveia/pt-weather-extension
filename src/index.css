@@ -1,9 +1,25 @@
 :root {
-  --background: #DCECFB;
-  --color: #202329;
+  --background: #FFFFFF;
+  --text_primary: #22272B;
+  --text_secondary: #4B4F52;
+  --yellow: #FCD100;
+  --orange: #EA9500;
+  --red: #FC3B00;
 
   --body_width: 400px;
   --body_height: 600px;
+}
+
+[data-theme="light"] {
+  --background: #FFFFFF;
+  --text_primary: #22272B;
+  --text_secondary: #4B4F52;
+}
+
+[data-theme="dark"] {
+  --background: #22272B;
+  --text_primary: #FFFFFF;
+  --text_secondary: #4B4F52;
 }
 
 body {
@@ -12,7 +28,7 @@ body {
   place-items: center;
 
   background-color: #FFFFFF;
-  color: var(--color);
+  color: var(--text_primary);
 
   max-width: var(--body_width);
   max-height: var(--body_height);
