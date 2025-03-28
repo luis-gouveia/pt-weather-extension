@@ -7,4 +7,5 @@
   width: var(--body_width);
   height: var(--body_height);
   background-color: var(--background);
+  transition: background-color 0.2s linear;
 }
