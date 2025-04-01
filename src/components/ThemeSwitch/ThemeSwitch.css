@@ -1,19 +1,23 @@
+/* Theme Switch Button Styles */
 .theme-switch {
   background-color: rgba(0,0,0,0) !important;
   border: rgba(0,0,0,0) !important;
 }
 
+/* Theme Switch Icon Styles */
 .theme-switch .icon {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   transition: 0.2s ease-out;
-}
-
-.theme-switch .icon:hover {
-  scale: 1.08;
 }
 
 .theme-switch .icon * {
   fill: var(--text_primary);
   stroke: var(--text_primary);
+  transition: 0.2s ease-out;
+}
+
+.theme-switch .icon:hover * {
+  fill: var(--text_secondary);
+  stroke: var(--text_secondary);
 }
