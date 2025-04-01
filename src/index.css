@@ -1,5 +1,6 @@
 :root {
   --background: #FFFFFF;
+  --background_hover: #ECF4FA75;
   --text_primary: #22272B;
   --text_secondary: #4B4F52;
   --yellow: #FCD100;
@@ -12,14 +13,16 @@
 
 [data-theme="light"] {
   --background: #FFFFFF;
+  --background_hover: #ECF4FA75;
   --text_primary: #22272B;
-  --text_secondary: #4B4F52;
+  --text_secondary: #7b7b7b;
 }
 
 [data-theme="dark"] {
   --background: #22272B;
+  --background_hover: #1A1C1E70;
   --text_primary: #FFFFFF;
-  --text_secondary: #4B4F52;
+  --text_secondary: #7b7b7b;
 }
 
 body {
