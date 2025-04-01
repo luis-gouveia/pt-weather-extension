@@ -6,6 +6,7 @@
   --yellow: #FCD100;
   --orange: #EA9500;
   --red: #FC3B00;
+  --divider: #00000025;
 
   --body_width: 400px;
   --body_height: 600px;
@@ -16,6 +17,7 @@
   --background_hover: #ECF4FA75;
   --text_primary: #22272B;
   --text_secondary: #7b7b7b;
+  --divider: #00000025;
 }
 
 [data-theme="dark"] {
@@ -23,6 +25,7 @@
   --background_hover: #1A1C1E70;
   --text_primary: #FFFFFF;
   --text_secondary: #7b7b7b;
+  --divider: #FFFFFF25;
 }
 
 body {
