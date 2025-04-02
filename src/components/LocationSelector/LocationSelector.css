@@ -1,0 +1,50 @@
+/* Location Toggle Styles */
+.location-selector .toggle {
+  border: none;
+  color: var(--text_primary);
+}
+
+.location-selector .toggle:hover {
+  color: var(--text_secondary);
+}
+
+/* Location Options Styles */
+.location-selector .options {
+  height: 300px !important;
+  max-height: 300px;
+  overflow-y: scroll;
+  background-color: var(--background);
+  border-color: var(--text_secondary);
+}
+
+.location-selector .options * {
+  color: var(--text_primary);
+}
+
+.location-selector .options *:active {
+  background-color: var(--text_primary);
+  color: var(--text_secondary);
+}
+
+/* Scroll Styles */
+/* Scroll Bar Surface */
+.location-selector ::-webkit-scrollbar { 
+  width: 5px;
+}
+
+/* Track */
+.location-selector ::-webkit-scrollbar-track { 
+  background: var(--background);
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
+
+/* Handle */
+.location-selector ::-webkit-scrollbar-thumb { 
+  background: var(--text_primary);
+  border-radius: 2px;
+}
+
+.location-selector ::-webkit-scrollbar-thumb:hover {
+  background: var(--text_secondary);
+}
