@@ -1,0 +1,32 @@
+/* Compact Weather Card Styles */
+.compact-weather-card {
+  padding: 5px;
+  transition: 0.2s ease;
+}
+
+.compact-weather-card:hover {
+  scale: 1.05;
+  background-color: var(--background_hover);
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+/* Compact Weather Card Text Styles */
+.compact-weather-card .temp-max {
+  font-size: 1rem;
+}
+
+.compact-weather-card .temp-min {
+  font-size: 0.7rem;
+  color: var(--text_secondary);
+}
+
+.compact-weather-card .date {
+  font-size: 1rem;
+  color: var(--text_primary);
+}
+
+/* Compact Weather Card Icon Styles */
+.compact-weather-card .weather-icon {
+  width: 50px;
+}
