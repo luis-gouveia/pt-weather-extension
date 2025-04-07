@@ -1,10 +1,10 @@
 /* Weather Card Styles */
-.weather-card {
+.expanded-weather-card {
   transition: 0.2s ease;
   padding: 10px;
 }
 
-.weather-card:hover {
+.expanded-weather-card:hover {
   background-color: var(--background_hover);
   cursor: pointer;
   border-radius: 0.5rem;
@@ -12,41 +12,41 @@
 }
 
 /* Weather Card Text Styles */
-.weather-card .description {
+.expanded-weather-card .description {
   color: var(--text_secondary);
 }
 
-.weather-card .temp-max {
+.expanded-weather-card .temp-max {
   font-size: 3.5rem;
 }
 
-.weather-card .temp-min {
+.expanded-weather-card .temp-min {
   font-size: 2rem;
   color: var(--text_secondary);
 }
 
-.weather-card .detail-label {
+.expanded-weather-card .detail-label {
   font-size: 0.8rem;
   color: var(--text_secondary);
   margin-top: -0.2rem !important;
 }
 
 /* Weather Card Icon Styles */
-.weather-card .weather-icon {
+.expanded-weather-card .weather-icon {
   width: 150px;
 }
 
-.weather-card .detail-icon {
+.expanded-weather-card .detail-icon {
   height: 20px;
   width: 20px;
 }
 
-.weather-card .detail-icon * {
+.expanded-weather-card .detail-icon * {
   fill: var(--text_primary);
   stroke: var(--text_primary);
 }
 
-.weather-card .rain-drop {
+.expanded-weather-card .rain-drop {
   height: 18px;
   width: 18px;
   margin-bottom: 2px;
