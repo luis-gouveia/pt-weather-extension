@@ -51,3 +51,9 @@
   width: 18px;
   margin-bottom: 2px;
 }
+
+.expanded-weather-card .warning-icon {
+  height: 25px;
+  width: 25px;
+  margin-right: 5px;
+}

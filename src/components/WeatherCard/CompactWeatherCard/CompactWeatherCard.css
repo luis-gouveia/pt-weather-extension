@@ -30,3 +30,9 @@
 .compact-weather-card .weather-icon {
   width: 50px;
 }
+
+.compact-weather-card .warning-icon {
+  height: 14px;
+  width: 14px;
+  margin-right: 2px;
+}

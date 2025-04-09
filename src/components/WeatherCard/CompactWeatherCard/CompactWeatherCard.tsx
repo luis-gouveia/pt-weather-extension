@@ -1,6 +1,7 @@
 import { Col, Container, Row } from 'react-bootstrap'
 import { WeatherCardProps } from '../WeatherCard'
 import { DateUtils } from '../../../utils/DateUtils'
+import WarningIcon from '../../../assets/uiIcons/warning.svg?react'
 import './CompactWeatherCard.css'
 
 // TODO: only temporary
@@ -10,7 +11,10 @@ const CompactWeatherCard = (props: WeatherCardProps['data']) => {
   return (
     <Container className="compact-weather-card text-center">
       <Row>
-        <Col className="date">{DateUtils.formatDate(props.date, 'COMPACT')}</Col>
+        <Col className="date d-flex align-items-center justify-content-center text-center">
+          {props.warnings.length && <WarningIcon className="warning-icon" />}
+          {DateUtils.formatDate(props.date, 'COMPACT')}
+        </Col>
       </Row>
       <Row className="mt-1">
         <Col>

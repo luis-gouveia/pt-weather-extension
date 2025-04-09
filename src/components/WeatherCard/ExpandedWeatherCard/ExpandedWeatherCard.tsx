@@ -4,6 +4,7 @@ import { DateUtils } from '../../../utils/DateUtils'
 import RainIcon from '../../../assets/uiIcons/rain_drop.svg?react'
 import UVIcon from '../../../assets/uiIcons/uv.svg?react'
 import WindIcon from '../../../assets/uiIcons/wind.svg?react'
+import WarningIcon from '../../../assets/uiIcons/warning.svg?react'
 import './ExpandedWeatherCard.css'
 
 // TODO: only temporary
@@ -13,8 +14,9 @@ const ExpandedWeatherCard = (props: WeatherCardProps['data']) => {
   return (
     <Container className="expanded-weather-card">
       <Row>
-        <Col>
-          <h3>{DateUtils.formatDate(props.date, 'EXPANDED')}</h3>
+        <Col className="d-flex align-items-center justify-content-center text-center">
+          {props.warnings.length && <WarningIcon className="warning-icon" />}
+          <h3 className="m-0">{DateUtils.formatDate(props.date, 'EXPANDED')}</h3>
         </Col>
       </Row>
       <Row className="mt-1">
