@@ -1,0 +1,147 @@
+/* Weather Day Modal Styles */
+[data-theme='light']  .weather-day-modal .modal-content {
+  background-color: var(--background);
+}
+
+[data-theme='dark']  .weather-day-modal .modal-content {
+  background-color: var(--background);
+}
+
+.weather-day-modal {
+  max-width: calc(var(--body_width) - 20px) !important;
+  max-height: calc(var(--body_height) - 20px) !important;
+  margin-left: 10px !important;
+  margin-top: 10px !important;
+}
+
+.weather-day-modal .modal-content {
+  width: calc(var(--body_width) - 20px) !important;
+  height: calc(var(--body_height) - 20px) !important;
+}
+
+/* Weather Day Modal Card Styles Override */
+.weather-day-modal .expanded-weather-card {
+  transition: none;
+}
+.weather-day-modal .expanded-weather-card:hover {
+  scale: 1;
+  cursor: default;
+  background-color: var(--background);
+}
+
+/* Weather Day Modal Card Location Title */
+.weather-day-modal .location-title h3 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Weather Day Modal Card Close Button */
+.weather-day-modal .close-btn {
+  background-color: rgba(0,0,0,0) !important;
+  border: rgba(0,0,0,0) !important;
+}
+
+.weather-day-modal .close-icon {
+  width: 15px;
+  height: 15px;
+  transition: 0.2s ease-out;
+}
+
+.weather-day-modal .close-icon * {
+  fill: var(--text_primary);
+  stroke: var(--text_primary);
+  transition: 0.2s ease-out;
+}
+
+.weather-day-modal .close-icon:hover * {
+  fill: var(--text_secondary);
+  stroke: var(--text_secondary);
+}
+
+/* Weather Day Modal Card Warning Styles */
+.weather-day-modal .warning-line .warning-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.weather-day-modal .warning-line .warning-icon.yellow-fill * {
+  fill: var(--yellow);
+  stroke: var(--yellow);
+}
+.weather-day-modal .warning-line .warning-icon.orange-fill * {
+  fill: var(--orange);
+  stroke: var(--orange);
+}
+.weather-day-modal .warning-line .warning-icon.red-fill * {
+  fill: var(--red);
+  stroke: var(--red);
+}
+
+.weather-day-modal .warning-line .warning-title {
+  font-size: 0.8rem;
+  color: var(--text_primary);
+}
+
+.weather-day-modal .warning-line .warning-description {
+  font-size: 0.7rem;
+  color: var(--text_secondary);
+}
+
+.weather-day-modal .warning-line .warning-time {
+  font-size: 0.8rem;
+  color: var(--text_secondary);
+  margin-left: 5px;
+}
+
+/* Weather Day Modal Card Warning Divider */
+.weather-day-modal .warnings-container {
+  position: relative;
+}
+.weather-day-modal .warnings-container::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 0.5px;
+  background: var(--divider);
+  top: -5px;
+  left: 10%;
+  border-radius: 1rem;
+}
+
+.weather-day-modal .warning-lines-container {
+  max-height: 55px;
+  overflow-y: auto;
+}
+
+/* Weather Day Modal Card Warnings Title */
+.weather-day-modal .warnings-title-icon {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  padding-bottom: 2px;
+}
+
+.weather-day-modal .warnings-title-empty {
+  color: var(--text_secondary);
+}
+
+
+/* Scroll Styles */
+/* Scroll Bar Surface */
+.weather-day-modal ::-webkit-scrollbar { 
+  width: 2px;
+}
+
+/* Track */
+.weather-day-modal ::-webkit-scrollbar-track { 
+  background: var(--divider);
+}
+
+/* Handle */
+.weather-day-modal ::-webkit-scrollbar-thumb { 
+  background: var(--text_primary);
+}
+
+.weather-day-modal ::-webkit-scrollbar-thumb:hover {
+  background: var(--text_secondary);
+}
