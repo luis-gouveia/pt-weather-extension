@@ -1,24 +1,32 @@
+import { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap'
+import { ThemeTypes } from '../../types/Theme'
+import { ThemeUtils } from '../../utils/ThemeUtils'
 import Sun from '../../assets/uiIcons/sun.svg?react'
 import Moon from '../../assets/uiIcons/moon.svg?react'
 import './ThemeSwitch.css'
-import { useState } from 'react'
 
 const ThemeSwitch = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+  const [theme, setTheme] = useState<ThemeTypes>(() => {
+    const localStorageTheme = localStorage.getItem('theme')
+    if (localStorageTheme && ThemeUtils.isValidTheme(localStorageTheme)) {
+      return localStorageTheme as ThemeTypes
+    } else return 'LIGHT'
+  })
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+    document.querySelector('body')?.setAttribute('data-theme', theme.toLowerCase())
+  }, [theme])
 
   const handleThemeChange = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault()
-    setTheme((theme) => {
-      const newTheme = theme === 'light' ? 'dark' : 'light'
-      document.querySelector('body')?.setAttribute('data-theme', newTheme)
-      return newTheme
-    })
+    setTheme(theme === 'LIGHT' ? 'DARK' : 'LIGHT')
   }
 
   return (
     <Button className="theme-switch" onClick={(e) => handleThemeChange(e)}>
-      {theme === 'light' ? <Moon className="icon" /> : <Sun className="icon" />}
+      {theme === 'LIGHT' ? <Moon className="icon" /> : <Sun className="icon" />}
     </Button>
   )
 }
