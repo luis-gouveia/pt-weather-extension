@@ -23,7 +23,8 @@ export class IPMAWeatherService {
         })
       }
       return locations
-    } catch {
+    } catch (error) {
+      console.log(error)
       throw new FailedToGetLocations()
     }
   }
