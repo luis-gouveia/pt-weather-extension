@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios'
 import { Location } from '../../types/Location'
-import { WindTypes } from '../../types/WeatherForecast'
-import { FailedToGetLocations, FailedToGetWindTypes } from './IPMAWeatherServiceErrors'
+import { WeatherTypes, WindTypes } from '../../types/WeatherForecast'
+import { FailedToGetLocations, FailedToGetWeatherTypes, FailedToGetWindTypes } from './IPMAWeatherServiceErrors'
 
 export class IPMAWeatherService {
   private readonly axios: AxiosInstance
@@ -41,6 +41,20 @@ export class IPMAWeatherService {
     } catch (error) {
       console.error(error)
       throw new FailedToGetWindTypes()
+    }
+  }
+
+  public async getWeatherTypes(): Promise<WeatherTypes> {
+    try {
+      const response = await this.axios.get('weather-type-classe.json')
+      const weatherTypes = {} as WeatherTypes
+      for (const weatherType of response.data.data) {
+        weatherTypes[weatherType.idWeatherType] = weatherType.descWeatherTypePT
+      }
+      return weatherTypes
+    } catch (error) {
+      console.error(error)
+      throw new FailedToGetWeatherTypes()
     }
   }
 }

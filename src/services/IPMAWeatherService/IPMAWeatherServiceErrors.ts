@@ -12,3 +12,8 @@ export class FailedToGetWindTypes extends ServiceError {
   }
 }
 
+export class FailedToGetWeatherTypes extends ServiceError {
+  constructor() {
+    super('Failed to get weather types.')
+  }
+}
