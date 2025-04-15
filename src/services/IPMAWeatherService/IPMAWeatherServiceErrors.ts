@@ -5,3 +5,10 @@ export class FailedToGetLocations extends ServiceError {
     super('Failed to get locations.')
   }
 }
+
+export class FailedToGetWindTypes extends ServiceError {
+  constructor() {
+    super('Failed to get wind types.')
+  }
+}
+
