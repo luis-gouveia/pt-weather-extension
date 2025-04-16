@@ -1,6 +1,8 @@
 import axios, { AxiosInstance } from 'axios'
 import { Location } from '../../types/Location'
+import { Warning } from '../../types/Warning'
 import { WeatherTypes, WindTypes } from '../../types/WeatherForecast'
+import { DateUtils } from '../../utils/DateUtils'
 import { FailedToGetLocations, FailedToGetWeatherTypes, FailedToGetWindTypes } from './IPMAWeatherServiceErrors'
 
 export class IPMAWeatherService {
@@ -55,6 +57,34 @@ export class IPMAWeatherService {
     } catch (error) {
       console.error(error)
       throw new FailedToGetWeatherTypes()
+    }
+  }
+
+  public async getWarnings(warningAreaId: string): Promise<Record<string, Warning[]>> {
+    try {
+      const response = await this.axios.get('forecast/warnings/warnings_www.json')
+      const relevantWarnings = response.data.filter(
+        (w: any) => w.awarenessLevelID !== 'green' && w.idAreaAviso === warningAreaId,
+      )
+
+      const warnings = {} as Record<string, Warning[]>
+      for (const warning of relevantWarnings) {
+        const warningData = {
+          type: (<string>warning.awarenessLevelID).toUpperCase() as Warning['type'],
+          name: warning.awarenessTypeName,
+          description: warning.text,
+          start: new Date(warning.startTime),
+          end: new Date(warning.endTime),
+        }
+
+        const warningDate = DateUtils.toDateString(warningData.start)
+        if (warnings[warningDate]) warnings[warningDate].push(warningData)
+        else warnings[warningDate] = [warningData]
+      }
+      return warnings
+    } catch (error) {
+      console.error(error)
+      return {}
     }
   }
 }
