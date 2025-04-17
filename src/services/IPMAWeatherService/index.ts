@@ -1,9 +1,14 @@
 import axios, { AxiosInstance } from 'axios'
 import { Location } from '../../types/Location'
 import { Warning } from '../../types/Warning'
-import { WeatherTypes, WindTypes } from '../../types/WeatherForecast'
+import { UV, WeatherTypes, WindTypes } from '../../types/WeatherForecast'
 import { DateUtils } from '../../utils/DateUtils'
-import { FailedToGetLocations, FailedToGetWeatherTypes, FailedToGetWindTypes } from './IPMAWeatherServiceErrors'
+import {
+  FailedToGetLocations,
+  FailedToGetUV,
+  FailedToGetWeatherTypes,
+  FailedToGetWindTypes,
+} from './IPMAWeatherServiceErrors'
 
 export class IPMAWeatherService {
   private readonly axios: AxiosInstance
@@ -85,6 +90,22 @@ export class IPMAWeatherService {
     } catch (error) {
       console.error(error)
       return {}
+    }
+  }
+
+  public async getUV(locationId: number): Promise<Record<string, UV>> {
+    try {
+      const response = await this.axios.get('forecast/meteorology/uv/uv.json')
+      const relevantData = response.data.filter((d: any) => d.globalIdLocal === locationId)
+
+      const result = {} as Record<string, UV>
+      for (const uvDay of relevantData) {
+        result[DateUtils.toDateString(new Date(uvDay.data))] = Number(uvDay.iUv)
+      }
+      return result
+    } catch (error) {
+      console.error(error)
+      throw new FailedToGetUV()
     }
   }
 }

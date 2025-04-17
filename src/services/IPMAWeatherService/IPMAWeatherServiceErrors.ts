@@ -17,3 +17,9 @@ export class FailedToGetWeatherTypes extends ServiceError {
     super('Failed to get weather types.')
   }
 }
+
+export class FailedToGetUV extends ServiceError {
+  constructor() {
+    super('Failed to get UV values.')
+  }
+}
