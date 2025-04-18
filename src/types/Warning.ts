@@ -1,5 +1,11 @@
+export enum WarningTypesEnum {
+  'YELLOW',
+  'ORANGE',
+  'RED',
+}
+
 export interface Warning {
-  type: 'YELLOW' | 'ORANGE' | 'RED'
+  type: keyof typeof WarningTypesEnum
   name: string
   description: string
   start: Date
