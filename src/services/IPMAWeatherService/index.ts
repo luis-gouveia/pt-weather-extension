@@ -1,11 +1,12 @@
 import axios, { AxiosInstance } from 'axios'
 import { Location } from '../../types/Location'
 import { Warning } from '../../types/Warning'
-import { UV, WeatherTypes, WindTypes } from '../../types/WeatherForecast'
+import { UV, WeatherForecast, WeatherTypes, WindTypes } from '../../types/WeatherForecast'
 import { DateUtils } from '../../utils/DateUtils'
 import {
   FailedToGetLocations,
   FailedToGetUV,
+  FailedToGetWeatherForecast,
   FailedToGetWeatherTypes,
   FailedToGetWindTypes,
 } from './IPMAWeatherServiceErrors'
@@ -106,6 +107,29 @@ export class IPMAWeatherService {
     } catch (error) {
       console.error(error)
       throw new FailedToGetUV()
+    }
+  }
+
+  public async getForecast(locationId: number): Promise<WeatherForecast[]> {
+    try {
+      const response = await this.axios.get(`forecast/meteorology/cities/daily/${locationId}.json`)
+
+      const forecast: WeatherForecast[] = []
+      for (const dayForecast of response.data.data) {
+        forecast.push({
+          date: new Date(dayForecast.forecastDate),
+          weatherType: dayForecast.idWeatherType,
+          minTemp: Number(dayForecast.tMin),
+          maxTemp: Number(dayForecast.tMax),
+          precipitationProb: Number(dayForecast.precipitaProb),
+          windDirection: dayForecast.predWindDir,
+          windType: dayForecast.classWindSpeed,
+        })
+      }
+      return forecast
+    } catch (error) {
+      console.error(error)
+      throw new FailedToGetWeatherForecast()
     }
   }
 }
