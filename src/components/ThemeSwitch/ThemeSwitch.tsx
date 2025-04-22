@@ -1,31 +1,21 @@
-import { useEffect, useState } from 'react'
+import { JSX, useContext } from 'react'
+import { ThemeContext } from '../../context/theme/ThemeContext'
 import { Button } from 'react-bootstrap'
-import { ThemeTypes } from '../../types/Theme'
-import { ThemeUtils } from '../../utils/ThemeUtils'
 import Sun from '../../assets/uiIcons/sun.svg?react'
 import Moon from '../../assets/uiIcons/moon.svg?react'
 import './ThemeSwitch.css'
 
-const ThemeSwitch = () => {
-  const [theme, setTheme] = useState<ThemeTypes>(() => {
-    const localStorageTheme = localStorage.getItem('theme')
-    if (localStorageTheme && ThemeUtils.isValidTheme(localStorageTheme)) {
-      return localStorageTheme as ThemeTypes
-    } else return 'LIGHT'
-  })
-
-  useEffect(() => {
-    localStorage.setItem('theme', theme)
-    document.querySelector('body')?.setAttribute('data-theme', theme.toLowerCase())
-  }, [theme])
-
-  const handleThemeChange = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e.preventDefault()
-    setTheme(theme === 'LIGHT' ? 'DARK' : 'LIGHT')
-  }
+/**
+ * A toggle button component that switches between light and dark themes.
+ * Integrates with the `ThemeContext` to read and update the current theme.
+ *
+ * @returns {JSX.Element} A theme switch toggle button
+ */
+const ThemeSwitch = (): JSX.Element => {
+  const { theme, toggleTheme } = useContext(ThemeContext)
 
   return (
-    <Button className="theme-switch" onClick={(e) => handleThemeChange(e)}>
+    <Button className="theme-switch" onClick={() => toggleTheme()}>
       {theme === 'LIGHT' ? <Moon className="icon" /> : <Sun className="icon" />}
     </Button>
   )
