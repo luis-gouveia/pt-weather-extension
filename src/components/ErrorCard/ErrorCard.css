@@ -1,0 +1,31 @@
+.error-card {
+  margin-top: 70px;
+}
+
+.error-card .title {
+  color: var(--text_primary);
+}
+
+.error-card .description {
+  color: var(--text_secondary);
+}
+
+.error-card .image {
+  width: 200px;
+  height: 200px;
+}
+
+.error-card .reload-button {
+  margin-top: 20px;
+  background-color: #00000000;
+  color: var(--text_secondary);
+  border-color: var(--text_secondary);
+  border-width: 2px !important;
+  transition: background-color 0.5s ease;
+}
+
+.error-card .reload-button:hover {
+  background-color: var(--background_hover) !important;
+  border-color: var(--text_secondary) !important;
+  color: var(--text_secondary) !important;
+}
