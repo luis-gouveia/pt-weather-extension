@@ -30,7 +30,7 @@
 }
 
 /* Weather Day Modal Card Location Title */
-.weather-day-modal .location-title h3 {
+.weather-day-modal .location-title h6 {
   margin: 0;
   padding: 0;
 }
@@ -144,4 +144,14 @@
 
 .weather-day-modal ::-webkit-scrollbar-thumb:hover {
   background: var(--text_secondary);
+}
+
+/* Tooltip Styles */
+.description-tooltip > div.tooltip-inner {
+  background-color: var(--text_secondary);
+  color: var(--background);
+}
+
+.description-tooltip .tooltip-arrow {
+  display: none !important;
 }
