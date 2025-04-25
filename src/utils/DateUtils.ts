@@ -10,7 +10,7 @@ export abstract class DateUtils {
    * @returns {string} A human-readable date string
    */
   public static toDateString(date: Date, format: 'EXPANDED' | 'COMPACT' = 'EXPANDED'): string {
-    let formattedDate = `${('0' + date.getUTCDate()).slice(-2)}/${('0' + date.getUTCMonth()).slice(-2)}`
+    let formattedDate = `${('0' + date.getUTCDate()).slice(-2)}/${('0' + (date.getUTCMonth() + 1)).slice(-2)}`
     if (format === 'EXPANDED') formattedDate += `/${date.getUTCFullYear()}`
     return formattedDate
   }
