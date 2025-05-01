@@ -20,6 +20,11 @@ export class IPMAWeatherService {
     })
   }
 
+  /**
+   * Fetches the list of available locations.
+   *
+   * @returns {Promise<Location[]>} An array of `Location` objects.
+   */
   public async getLocations(): Promise<Location[]> {
     try {
       const response = await this.axios.get('distrits-islands.json')
@@ -31,13 +36,18 @@ export class IPMAWeatherService {
           warningAreaId: location.idAreaAviso,
         })
       }
-      return locations
+      return locations.sort((a, b) => a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' }))
     } catch (error) {
       console.error(error)
       throw new FailedToGetLocations()
     }
   }
 
+  /**
+   * Fetches the types of wind types used in the forecasts.
+   *
+   * @returns {Promise<WindTypes>} `Record` of wind type definitions.
+   */
   public async getWindTypes(): Promise<WindTypes> {
     try {
       const response = await this.axios.get('wind-speed-daily-classe.json')
@@ -52,6 +62,11 @@ export class IPMAWeatherService {
     }
   }
 
+  /**
+   * Fetches the available weather types used in forecasts.
+   *
+   * @returns {Promise<WeatherTypes>} `Record` of weather type definitions.
+   */
   public async getWeatherTypes(): Promise<WeatherTypes> {
     try {
       const response = await this.axios.get('weather-type-classe.json')
@@ -66,6 +81,12 @@ export class IPMAWeatherService {
     }
   }
 
+  /**
+   * Fetches the weather warnings for a given location.
+   *
+   * @param {string} warningAreaId Area warning ID of the location.
+   * @returns {Promise<Record<string, Warning[]>>} `Record` mapping date strings to arrays of `Warning` objects.
+   */
   public async getWarnings(warningAreaId: string): Promise<Record<string, Warning[]>> {
     try {
       const response = await this.axios.get('forecast/warnings/warnings_www.json')
@@ -94,6 +115,12 @@ export class IPMAWeatherService {
     }
   }
 
+  /**
+   * Fetches the UV index forecast for a specific location.
+   *
+   * @param {number} locationId Identifier of the location.
+   * @returns {Promise<Record<string, UV>>} `Record` mapping date strings to UV index values.
+   */
   public async getUV(locationId: number): Promise<Record<string, UV>> {
     try {
       const response = await this.axios.get('forecast/meteorology/uv/uv.json')
@@ -110,6 +137,12 @@ export class IPMAWeatherService {
     }
   }
 
+  /**
+   * Fetches the five day weather forecast data for a given location.
+   *
+   * @param {number} locationId Identifier of the location.
+   * @returns {Promise<WeatherForecast[]>} An array of `WeatherForecast` objects.
+   */
   public async getForecast(locationId: number): Promise<WeatherForecast[]> {
     try {
       const response = await this.axios.get(`forecast/meteorology/cities/daily/${locationId}.json`)
