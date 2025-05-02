@@ -1,6 +1,6 @@
 import { JSX } from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap'
-import ErrorImage from '../../assets/weatherIcons/sunny.png'
+import ErrorImage from '../../assets/weather/error.png'
 import './ErrorCard.css'
 
 interface ErrorCardProps {

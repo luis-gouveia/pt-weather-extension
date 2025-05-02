@@ -1,8 +1,8 @@
 import { JSX, useContext } from 'react'
 import { ThemeContext } from '../../context/theme/ThemeContext'
 import { Button } from 'react-bootstrap'
-import Sun from '../../assets/uiIcons/sun.svg?react'
-import Moon from '../../assets/uiIcons/moon.svg?react'
+import Sun from '../../assets/ui/sun.svg?react'
+import Moon from '../../assets/ui/moon.svg?react'
 import './ThemeSwitch.css'
 
 /**
