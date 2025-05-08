@@ -6,7 +6,7 @@ export interface WeatherData {
   weatherDescription: string
   maxTemp: number
   minTemp: number
-  rainPercentage: number
+  precipitationProb: number
   uv?: number
   windType: string
   windDirection: string

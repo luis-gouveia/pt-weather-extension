@@ -42,7 +42,7 @@ const ExpandedWeatherCard = (props: WeatherCardProps['data']) => {
                 <RainIcon className="detail-icon rain-drop" />
               </Col>
             </Row>
-            <Row className="d-flex justify-content-center detail-value">{Math.round(props.rainPercentage)}%</Row>
+            <Row className="d-flex justify-content-center detail-value">{Math.round(props.precipitationProb)}%</Row>
             <Row className="d-flex justify-content-center detail-label">Chuva</Row>
           </Container>
         </Col>
