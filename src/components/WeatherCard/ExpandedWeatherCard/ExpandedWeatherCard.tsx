@@ -1,28 +1,34 @@
+import { JSX } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { WeatherCardProps } from '../WeatherCard'
 import { DateUtils } from '../../../utils/DateUtils'
-import RainIcon from '../../../assets/uiIcons/rain_drop.svg?react'
-import UVIcon from '../../../assets/uiIcons/uv.svg?react'
-import WindIcon from '../../../assets/uiIcons/wind.svg?react'
-import WarningIcon from '../../../assets/uiIcons/warning.svg?react'
+import { mapWeatherTypetoImage } from '../../../libs/weatherImageMapper'
+import RainIcon from '../../../assets/ui/rain_drop.svg?react'
+import UVIcon from '../../../assets/ui/uv.svg?react'
+import WindIcon from '../../../assets/ui/wind.svg?react'
+import WarningIcon from '../../../assets/ui/warning.svg?react'
 import './ExpandedWeatherCard.css'
 
-// TODO: only temporary
-import WeatherImage from '../../../assets/weatherIcons/sunny.png'
-
-const ExpandedWeatherCard = (props: WeatherCardProps['data']) => {
+/**
+ * Expanded weather card that displays detailed weather information in an expanded layout.
+ *
+ * @component
+ * @param {WeatherCardProps['data']} props The weather data for the card.
+ *
+ * @returns {JSX.Element} The rendered expanded weather card.
+ */
+const ExpandedWeatherCard = (props: WeatherCardProps['data']): JSX.Element => {
   return (
     <Container className="expanded-weather-card">
       <Row>
         <Col className="d-flex align-items-center justify-content-center text-center">
-          {props.warnings.length && <WarningIcon className="warning-icon" />}
+          {props.warnings.length > 0 && <WarningIcon className="warning-icon" />}
           <h3 className="m-0">{DateUtils.formatDate(props.date, 'EXPANDED')}</h3>
         </Col>
       </Row>
       <Row className="mt-1">
         <Col>
-          {/*TODO: hardcoded for now */}
-          <img src={WeatherImage} className="weather-icon" />
+          <img src={mapWeatherTypetoImage(props.weatherType)} className="weather-icon" />
         </Col>
       </Row>
       <Row>
@@ -46,7 +52,7 @@ const ExpandedWeatherCard = (props: WeatherCardProps['data']) => {
             <Row className="d-flex justify-content-center detail-label">Chuva</Row>
           </Container>
         </Col>
-        <Col xs={4}>
+        <Col xs={5}>
           <Container>
             <Row className="d-flex justify-content-center">
               <Col>

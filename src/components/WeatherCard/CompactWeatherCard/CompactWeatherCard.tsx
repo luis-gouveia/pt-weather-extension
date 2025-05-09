@@ -1,25 +1,31 @@
+import { JSX } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { WeatherCardProps } from '../WeatherCard'
 import { DateUtils } from '../../../utils/DateUtils'
-import WarningIcon from '../../../assets/uiIcons/warning.svg?react'
+import WarningIcon from '../../../assets/ui/warning.svg?react'
+import { mapWeatherTypetoImage } from '../../../libs/weatherImageMapper'
 import './CompactWeatherCard.css'
 
-// TODO: only temporary
-import WeatherImage from '../../../assets/weatherIcons/partly_sunny.png'
-
-const CompactWeatherCard = (props: WeatherCardProps['data']) => {
+/**
+ * Compact weather card that displays summarized weather information like date, image and temperature.
+ *
+ * @component
+ * @param {WeatherCardProps['data']} props The weather data for the card.
+ *
+ * @returns {JSX.Element} The rendered compact weather card.
+ */
+const CompactWeatherCard = (props: WeatherCardProps['data']): JSX.Element => {
   return (
     <Container className="compact-weather-card text-center">
       <Row>
         <Col className="date d-flex align-items-center justify-content-center text-center">
-          {props.warnings.length && <WarningIcon className="warning-icon" />}
+          {props.warnings.length > 0 && <WarningIcon className="warning-icon" />}
           {DateUtils.formatDate(props.date, 'COMPACT')}
         </Col>
       </Row>
       <Row className="mt-1">
         <Col>
-          {/*TODO: hardcoded for now */}
-          <img src={WeatherImage} className="weather-icon" />
+          <img src={mapWeatherTypetoImage(props.weatherType)} className="weather-icon" />
         </Col>
       </Row>
       <Row>
