@@ -9,3 +9,32 @@
   background-color: var(--background);
   transition: background-color 0.2s linear;
 }
+
+/* Compact card container styles */
+.compact-cards-container {
+  position: relative;
+}
+.compact-cards-container::after {
+  content: '';
+  position: absolute;
+  width: 350px;
+  height: 0.5px;
+  background: var(--divider);
+  top: -15px;
+  left: 25px;
+  border-radius: 1rem;
+}
+
+.compact-cards-container .compact-card {
+  position: relative;
+}
+.compact-cards-container .compact-card:not(:last-child)::after  {
+  content: '';
+  position: absolute;
+  width: 1px;
+  height: 90px;
+  background: var(--divider);
+  top: 15px;
+  right: 0px;
+  border-radius: 1rem;
+}
