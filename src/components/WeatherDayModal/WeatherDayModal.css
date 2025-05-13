@@ -33,6 +33,7 @@
 .weather-day-modal .location-title h6 {
   margin: 0;
   padding: 0;
+  color: var(--text_primary);
 }
 
 /* Weather Day Modal Card Close Button */
@@ -123,6 +124,10 @@
 
 .weather-day-modal .warnings-title-empty {
   color: var(--text_secondary);
+}
+
+.weather-day-modal .warnings-title {
+  color: var(--text_primary);
 }
 
 

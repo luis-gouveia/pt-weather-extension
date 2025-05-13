@@ -93,7 +93,7 @@ const WeatherDayModal = ({ location, weatherData, onClose }: WeatherDayModalProp
               <Row className="text-center mb-2">
                 <Col>
                   <WarningIcon className="warnings-title-icon" />
-                  Avisos Meterológicos
+                  <span className="warnings-title">Avisos Meterológicos</span>
                 </Col>
               </Row>
               <Row className="warning-lines-container">

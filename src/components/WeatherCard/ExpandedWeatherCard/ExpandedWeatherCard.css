@@ -12,17 +12,26 @@
 }
 
 /* Weather Card Text Styles */
+.expanded-weather-card h3 {
+  color: var(--text_primary);
+}
+
 .expanded-weather-card .description {
   color: var(--text_secondary);
 }
 
 .expanded-weather-card .temp-max {
   font-size: 3.5rem;
+  color: var(--text_primary);
 }
 
 .expanded-weather-card .temp-min {
   font-size: 2rem;
   color: var(--text_secondary);
+}
+
+.expanded-weather-card .detail-value {
+  color: var(--text_primary);
 }
 
 .expanded-weather-card .detail-label {
