@@ -2,12 +2,19 @@
   "manifest_version": 3,
   "name": "PT Weather",
   "description": "Chrome extension for Portugal's weather forecasts using IPMA's API.",
+  "author": "Luís Gouveia",
   "version": "1.0.0",
-  "icons": {
-    "128": "/icon128.png"
-  },
   "action": {
     "default_popup": "./index.html",
-    "default_title": "PT Weather"
+    "default_title": "PT Weather",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
   }
 }
