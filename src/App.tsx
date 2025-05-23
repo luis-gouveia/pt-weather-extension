@@ -26,7 +26,7 @@ function App() {
       {data && (
         <>
           <Row>
-            <Col xs={{ span: 8, offset: 2 }} className="d-flex justify-content-center align-items-center">
+            <Col xs={{ span: 8, offset: 2 }} className="mt-2 d-flex justify-content-center align-items-center">
               <LocationSelector locations={data.locations} location={location} locationChangeHandler={setLocation} />
             </Col>
             <Col xs={2} className="d-flex justify-content-center">
