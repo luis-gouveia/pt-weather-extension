@@ -23,7 +23,7 @@ The extension should now appear in your browser's toolbar.
 
 ## Screenshots
 <img align="left" src="./screenshots/main_light.png" width="230" title="main light"/>
-<img src="./screenshots/main_dark.png" width="230" title="main dark"/>
+<img align="left" src="./screenshots/main_dark.png" width="230" title="main dark"/>
 <img align="left" src="./screenshots/modal_light.png" width="230" title="modal light">
 <img src="./screenshots/modal_dark.png" width="230" title="modal dark">
 
