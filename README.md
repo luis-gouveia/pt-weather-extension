@@ -23,7 +23,10 @@ The extension should now appear in your browser's toolbar.
 
 ## Screenshots
 <img align="left" src="./screenshots/main_light.png" width="230" title="main light"/>
-<img align="left" src="./screenshots/main_dark.png" width="230" title="main dark"/>
+<img src="./screenshots/main_dark.png" width="230" title="main dark"/>
 <img align="left" src="./screenshots/modal_light.png" width="230" title="modal light">
 <img src="./screenshots/modal_dark.png" width="230" title="modal dark">
 
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.\
+Weather data provided by [IPMA](https://api.ipma.pt/). Please refer to their site for more information.
