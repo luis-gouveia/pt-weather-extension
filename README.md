@@ -5,6 +5,7 @@ A **Chrome Extension** that provides up-to-date weather forecasts for Portugal, 
 1. Clone Repo
 ```
 git clone https://github.com/luis-gouveia/pt-weather-extension.git
+cd pt-weather-extension
 ```
 2. Install NPM packages
 ```
