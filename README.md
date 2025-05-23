@@ -21,4 +21,9 @@ npm run build
 
 The extension should now appear in your browser's toolbar.
 
+## Screenshots
+<img src="./screenshots/main_light.png" width="260" title="main light">
+<img src="./screenshots/main_dark.png" width="260" title="main dark">
+<img src="./screenshots/modal_light.png" width="260" title="modal light">
+<img src="./screenshots/modal_dark.png" width="260" title="modal dark">
 
